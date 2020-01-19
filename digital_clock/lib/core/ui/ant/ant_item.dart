@@ -221,7 +221,7 @@ class _AnimatedAntAngle extends AnimatedWidget {
       alignment: Alignment.center,
       angle: angle(i),
       // child: Container(
-      //   color: Colors.black,
+      //   color: Colors.white,
       //   height: Sizer().getWidth(
       //       ANT_HEIGHT), // because it will work in different direction
       //   width: Sizer().getWidth(ANT_WIDTH),

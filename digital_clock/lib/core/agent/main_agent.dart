@@ -43,33 +43,10 @@ class MainAgent extends Agent {
     return DateFormat('hh').format(dateTime);
   }
 
-  Widget get _buildDots => Positioned(
-      top: Sizer().getHeight(NUMBER_HEIGHT),
-      left: Sizer()
-          .getWidth(NUMBER_X_START + NUMBER_WIDTH * 2 + NUMBER_MARGIN + 30),
-      child: Container(
-        height: Sizer().getHeight(ANT_HEIGHT * 2),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            Container(
-              width: Sizer().getWidth(40),
-              height: Sizer().getWidth(40),
-              color: Colors.red,
-            ),
-            Container(
-              width: Sizer().getWidth(40),
-              height: Sizer().getWidth(40),
-              color: Colors.red,
-            )
-          ],
-        ),
-      ));
 
   Widget build() {
     return Stack(
       children: <Widget>[
-        _buildDots,
         number1.build(),
         number2.build(),
         number3.build(),

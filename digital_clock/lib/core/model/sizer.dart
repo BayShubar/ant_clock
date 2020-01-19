@@ -29,6 +29,7 @@ class Sizer {
 
   double get scaleWidth => _actualWidth / w;
   double get scaleHeight => _actualHeight / h;
-  num getWidth(num width) => width * scaleWidth;
-  num getHeight(num height) => height * scaleHeight;
+  double getWidth(double width) => width * scaleWidth;
+  double getHeight(double height) => height * scaleHeight;
+  double getFont(double size) => size * scaleWidth;
 }

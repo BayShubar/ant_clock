@@ -23,6 +23,13 @@ flutter:
 
   assets:
    - assets/ant.flr
+   - assets/cloudy.png
+   - assets/foggy.png
+   - assets/rainy.png
+   - assets/snowy.png
+   - assets/sunny.png
+   - assets/thunderstorm.png
+   - assets/windy.png
 
 
 

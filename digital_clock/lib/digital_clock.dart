@@ -7,6 +7,8 @@ import 'dart:async';
 import 'package:digital_clock/config.dart';
 import 'package:digital_clock/core/agent/main_agent.dart';
 import 'package:digital_clock/core/model/sizer.dart';
+import 'package:digital_clock/core/ui/dots/dots.dart';
+import 'package:digital_clock/core/ui/weather/wather.dart';
 import 'package:flutter_clock_helper/model.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -23,11 +25,19 @@ class DigitalClock extends StatefulWidget {
 class _DigitalClockState extends State<DigitalClock> {
   DateTime _dateTime = DateTime.now();
   Timer _timer;
+
+  String _temp;
+  String _weather;
+
   final MainAgent _mainAgent = MainAgent();
   ClockModel get _model => widget.model;
 
   @override
   void initState() {
+    setState(() {
+      _temp = _model.temperatureString;
+      _weather = _model.weatherString;
+    });
     super.initState();
     widget.model.addListener(_updateModel);
     Future.delayed(Duration(milliseconds: 1000), () {
@@ -54,10 +64,11 @@ class _DigitalClockState extends State<DigitalClock> {
   }
 
   void _updateModel() {
-    // setState(() {
-    //   // Cause the clock to rebuild when the model changes.
-    //
-    // });
+    setState(() {
+      _temp = _model.temperatureString;
+      _weather = _model.weatherString;
+    });
+    print('${_model.temperatureString} ${_model.weatherString}');
     _mainAgent.changeTimeFormat(_model.is24HourFormat);
   }
 
@@ -83,8 +94,18 @@ class _DigitalClockState extends State<DigitalClock> {
   Widget build(BuildContext context) {
     Sizer.instance = Sizer()..init(context);
     return Container(
-      color: Colors.white,
-      child: _mainAgent.build(),
+      // color: Colors.red,
+      color: Color(0xFF1C1C1C),
+      child: Stack(
+        children: <Widget>[
+          _mainAgent.build(),
+          Dots(),
+          Weather(
+            temp: _temp,
+            weather: _weather,
+          )
+        ],
+      ),
     );
   }
 }

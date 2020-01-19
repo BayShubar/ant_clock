@@ -7,8 +7,8 @@ const double DEVICE_HEIGHT = 900;
 
 /// Each building bricks is ant
 /// an below it's size ratio is 3:1
-const double ANT_WIDTH = 50;
-const double ANT_HEIGHT = 150;
+const double ANT_WIDTH = 40;
+const double ANT_HEIGHT = 120;
 const double ANT_MARGIN = 10;
 const double NUMBER_MARGIN = 100;
 const double NUMBER_HEIGHT = 300; 
